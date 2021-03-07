@@ -1,7 +1,40 @@
-<div class  = "mainBody">
-  <mat-paginator [length]="matchNumber"
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 25, 100]" (page)=" getData($event)">
-  </mat-paginator>
+<div class="mainBody" fxLayout="column" fxLayoutAlign="start center">
+  <h2>{{title}}</h2>
+  <mat-card class="container">
+    <mat-list fxLayout="row" fxLayoutAlign="space-between center">
+      <h3>Date</h3>
+      <h3>Teams</h3>
+      <h3>Score</h3>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <div mat-list-item *ngFor="let match of currentMatches">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h4>{{match.date}}</h4>
+          <div >
+            <a
+              href="#"
+              (click)="openTeamDialog($event,match.team1)">
+              {{match.team1}}
+            </a> vs
+            <a
+              href="#"
+              (click)="openTeamDialog($event,match.team2)">
+              {{match.team2}}
+            </a>
+          </div>
+          <div style="color: red">
+            {{match.score.ft[0]}} - {{match.score.ft[1]}}
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-paginator mat-list-item [length]="matchNumber"
+                     [pageSize]="10"
+                     (page)="setCurrentPage($event)">
+      </mat-paginator>
+
+    </mat-list>
+  </mat-card>
 
 </div>
