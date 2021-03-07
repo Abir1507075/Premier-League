@@ -1,8 +1,7 @@
-<div>
-  <mat-nav-list>
-    <a mat-list-item>abir</a>
-    <a mat-list-item>mahir</a>
-    <mat-list-item >abir</mat-list-item>
-    <mat-list-item>mahir</mat-list-item>
-  </mat-nav-list>
+<div class  = "mainBody">
+  <mat-paginator [length]="matchNumber"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]" (page)=" getData($event)">
+  </mat-paginator>
+
 </div>
