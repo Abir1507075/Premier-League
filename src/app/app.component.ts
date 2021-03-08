@@ -44,7 +44,9 @@ export class AppComponent {
     this.dialog.open(TeamDetailsComponent, {
       data: {
         name: team
-      }
+      },
+      height: '200px',
+      width: '500px',
     });
   }
 
