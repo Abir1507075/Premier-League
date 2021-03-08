@@ -8,8 +8,13 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class TeamDetailsComponent implements OnInit {
 
+  public tableData = [];
+  columnsToDisplay = ['matchPlayed', 'win', 'lost', 'draw'];
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    this.tableData.push(data);
   }
+
 
   ngOnInit(): void {
   }

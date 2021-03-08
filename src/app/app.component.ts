@@ -43,10 +43,15 @@ export class AppComponent {
     console.log(team);
     this.dialog.open(TeamDetailsComponent, {
       data: {
-        name: team
+        name: team ,
+        matchPlayed: this.matchData.teamDetails.details[team].totalMatch,
+        win: this.matchData.teamDetails.details[team].win,
+        lost: this.matchData.teamDetails.details[team].lost,
+        draw: this.matchData.teamDetails.details[team].draw,
       },
-      height: '200px',
-      width: '500px',
+      height: '300px',
+      width: '600px',
+
     });
   }
 

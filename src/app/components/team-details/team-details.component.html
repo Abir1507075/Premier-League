@@ -1,2 +1,23 @@
-<p>team-details works!</p>
-<p>{{data.name}}</p>
+<div fxLayout="column" fxLayoutAlign="start center">
+  <h2>{{data.name}}</h2>
+  <table mat-table [dataSource]="tableData" class="mat-elevation-z10">
+    <ng-container matColumnDef="matchPlayed">
+      <th mat-header-cell *matHeaderCellDef> played</th>
+      <td mat-cell *matCellDef="let user"> {{user.matchPlayed}} </td>
+    </ng-container>
+    <ng-container matColumnDef="win">
+      <th mat-header-cell *matHeaderCellDef> Win</th>
+      <td mat-cell *matCellDef="let user"> {{user.win}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lost">
+      <th mat-header-cell *matHeaderCellDef> Lost</th>
+      <td mat-cell *matCellDef="let user"> {{user.lost}} </td>
+    </ng-container>
+    <ng-container matColumnDef="draw">
+      <th mat-header-cell *matHeaderCellDef> Draw</th>
+      <td mat-cell *matCellDef="let user"> {{user.draw}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+</div>
