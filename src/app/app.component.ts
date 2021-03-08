@@ -37,10 +37,15 @@ export class AppComponent {
       this.matchData.getMatchByRoundId(this.pageNumber);
     }
   }
+
   openTeamDialog(event: Event, team: string): void {
     event.preventDefault();
     console.log(team);
-    this.dialog.open(TeamDetailsComponent);
+    this.dialog.open(TeamDetailsComponent, {
+      data: {
+        name: team
+      }
+    });
   }
 
 
